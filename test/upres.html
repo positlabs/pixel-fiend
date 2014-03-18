@@ -50,7 +50,6 @@ window.addEventListener('load', function(){
 		getPixel:function(x, y){
 			var data 	= this.imageData,
 				width 	= this.width,
-				height 	= this.height,
 		        red 	= data[((width * y) + x) * 4],
 		        green 	= data[((width * y) + x) * 4 + 1],
 		        blue 	= data[((width * y) + x) * 4 + 2],
@@ -67,7 +66,8 @@ window.addEventListener('load', function(){
 	function render(){
 
 		offsetMagnitude = Math.max(0, offsetMagnitude-3);
-		blockSize -= 3;
+		blockSize = Math.max(-1000, blockSize-3);
+		
 
 		var x = Math.random() * pixels.width;
 		var y = Math.random() * pixels.height;
