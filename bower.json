@@ -1,0 +1,16 @@
+{
+  "name": "pixel-fiend",
+  "version": "0.0.0",
+  "homepage": "https://github.com/positlabs/pixel-fiend",
+  "authors": [
+    "Joshua Beckwith <josh.beckwith@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
