@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>upres canvas effect test</title>
+
+<script type="text/javascript" src="../bower_components/ox/ox.js"></script>
+
+<script type="text/javascript">
+	
+window.addEventListener('load', function(){
+
+	var canvas = ox('canvas'),
+	ctx = canvas.getContext('2d'),
+	pixels,
+	width, height;
+
+	ox.loadImage(canvas.ox.attr('data-img'), function(img){
+		width = img.width;
+		height = img.height;
+
+		ox('#canvas-holder').ox.css({width:width+'px', height:height+'px'});
+
+		pixels = new Pixels(img);
+		console.log(pixels);
+
+		canvas.width = img.width;
+		canvas.height = img.width;
+		ctx.drawImage(img, 0, 0);
+
+		ox.FrameImpulse.on('frame', render);
+		ox.FrameImpulse.start();
+		render();
+	});
+
+	var Pixels = function(img){
+		this.img = img;
+		this.width = img.width;
+		this.height = img.height;
+
+		var imgCanvas = ox.create('canvas');
+		imgCanvas.width = this.width;
+		imgCanvas.height = this.height;
+		imgCtx = imgCanvas.getContext('2d');
+		imgCtx.drawImage(img, 0, 0);
+		
+		this.imageData = imgCtx.getImageData(0, 0, this.width, this.height).data;
+	}
+
+	Pixels.prototype = {
+		getPixel:function(x, y){
+			var data 	= this.imageData,
+				width 	= this.width,
+		        red 	= data[((width * y) + x) * 4],
+		        green 	= data[((width * y) + x) * 4 + 1],
+		        blue 	= data[((width * y) + x) * 4 + 2],
+		        alpha 	= data[((width * y) + x) * 4 + 3];
+	        return [red, green, blue, alpha];
+		},
+		setPixel:function(x, y, pixel){
+
+		}
+	};
+
+	var offsetMagnitude = 100;
+	var blockSize = 300;
+	function render(){
+
+		offsetMagnitude = Math.max(0, offsetMagnitude-3);
+		blockSize = Math.max(-1000, blockSize-3);
+		
+
+		var x = Math.random() * pixels.width;
+		var y = Math.random() * pixels.height;
+
+		var offX = Math.round(Math.random() * offsetMagnitude - offsetMagnitude * .5);
+		var offY = Math.round(Math.random() * offsetMagnitude - offsetMagnitude * .5);
+
+		ctx.drawImage(			pixels.img, x-offX, 	y-offY, 	blockSize, 	blockSize, 	x, 	y, 	blockSize, 	blockSize);
+	}
+});
+
+</script>
+
+<style type="text/css">
+	
+	#canvas-holder{
+		overflow: hidden;
+		width: 
+	}
+
+</style>
+</head>
+
+<body>
+
+<div id="canvas-holder">
+	<canvas data-img="va.png"></canvas>
+</div>
+
+
+</body>
+</html>
