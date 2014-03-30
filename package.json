@@ -1,0 +1,26 @@
+{
+  "name": "pixel-fiend",
+  "version": "0.0.0",
+  "description": "",
+  "main": "Gruntfile.js",
+  "dependencies": {
+    "grunt": "~0.4.4",
+    "grunt-contrib-less": "~0.11.0",
+    "grunt-contrib-requirejs": "~0.4.3",
+    "grunt-contrib-watch": "~0.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/positlabs/pixel-fiend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/positlabs/pixel-fiend/issues"
+  },
+  "homepage": "https://github.com/positlabs/pixel-fiend"
+}
