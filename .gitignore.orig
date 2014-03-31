@@ -1,0 +1,8 @@
+<<<<<<< HEAD
+node_modules
+src/bower
+.DS_Store
+=======
+bower_components
+node_modules
+>>>>>>> 1df8d2afb13063bf24e69b2f9d23aa38488e2b15
