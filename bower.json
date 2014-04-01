@@ -16,6 +16,8 @@
   "dependencies": {
     "ox": "git@github.com:positlabs/ox.git",
     "underscore": "~1.6.0",
-    "noisejs": "git@github.com:josephg/noisejs.git"
+    "noisejs": "git@github.com:josephg/noisejs.git",
+    "requirejs": "~2.1.11",
+    "normalize-css": "~3.0.1"
   }
 }
